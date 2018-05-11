@@ -16,7 +16,7 @@ person_3/
 ```
 Allowed extensions for images are: `.jpg`, `.jpeg` and `.png`.
 
-**Usage** Run `teach.py` from the command line in the directory containing all the folders of images.
+**Usage** Run `teach.py` from the command line in the directory containing all the folders of images. The script assumes your Facebox is running on `localhost`, if this isn't the case you will need to edit `teach_api_url` and `health_api_url` in `teach.py`.
 
 **Limits** With a free license of Facebox you are limited to teaching 20 faces.
 
