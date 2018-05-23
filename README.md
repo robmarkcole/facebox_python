@@ -14,7 +14,7 @@ person_3/
     image2.jpeg
     ..........    
 ```
-Allowed extensions for images are: `.jpg`, `.jpeg` and `.png`.
+Allowed file extensions for images are: `.jpg`, `.jpeg` and `.png`.
 
 **Usage** Run `teach_facebox.py` from the command line in the directory containing all the folders of images. The script assumes your Facebox is running on `localhost`, if this isn't the case you will need to edit `teach_api_url` and `health_api_url` in `teach_facebox.py`.
 
