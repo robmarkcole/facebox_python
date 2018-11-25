@@ -19,3 +19,15 @@ Allowed file extensions for images are: `.jpg`, `.jpeg` and `.png`.
 **Usage** Run `teach_facebox.py` from the command line in the directory containing all the folders of images. The script assumes your Facebox is running on `localhost:8080`, if this isn't the case you will need to edit the `IP` and `PORT` variables in `teach_facebox.py`.
 
 **Limits** With a free license of Facebox you are limited to teaching 20 faces.
+
+## State file
+
+Once you have trained facebox you can download the state file using:
+```curl
+curl -o state.facebox http://localhost:8080/facebox/state
+```
+
+If you restart facebox and loose the state, you can upload your saved state file using:
+```curl
+curl -X POST -F 'file=@state.facebox' http://localhost:8080/facebox/state
+```
