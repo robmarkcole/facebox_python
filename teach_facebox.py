@@ -10,10 +10,12 @@ IP = 'localhost'
 PORT = '8080'
 CLASSIFIER = 'facebox'
 VALID_FILETYPES = ('.jpg', '.png', '.jpeg')
+USERNAME = ''
+PASSWORD = ''
 
 TEACH_URL = "http://{}:{}/{}/teach".format(IP, PORT, CLASSIFIER)
 HEALTH_URL = "http://{}:{}/readyz".format(IP, PORT)
-
+AUTH_STRING = "{}:{}@".format(USERNAME,PASSWORD)
 
 def check_classifier_health():
     """Check that classifier is reachable"""
@@ -61,6 +63,13 @@ def teach_name_by_file(teach_url, name, file_path):
 
 
 def main():
+    global TEACH_URL
+    global HEALTH_URL
+    
+    if USERNAME and PASSWORD:
+        TEACH_URL = TEACH_URL[:7]+AUTH_STRING+TEACH_URL[7:]
+        HEALTH_URL = HEALTH_URL[:7]+AUTH_STRING+HEALTH_URL[7:]
+    
     if check_classifier_health():
         for folder_name in list_folders():
             folder_path = os.path.join(os.getcwd(), folder_name)
